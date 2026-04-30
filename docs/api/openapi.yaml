@@ -1,0 +1,75 @@
+openapi: 3.0.0
+
+info:
+  title: Israride Pricing API
+  version: 1.0.0
+  description: |
+    API for calculating ride pricing based on trip parameters and system-defined pricing policies.
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /api/v1/pricing/calculate:
+    post:
+      summary: Calculate ride price
+      description: |
+        Calculates ride fare based on distance and duration.
+
+        Pricing logic is controlled internally by system policies.
+        Clients provide only trip parameters.
+
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - distanceKm
+                - durationMin
+              properties:
+                distanceKm:
+                  type: number
+                  description: Trip distance in kilometers
+                  example: 10
+                durationMin:
+                  type: number
+                  description: Trip duration in minutes
+                  example: 15
+
+      responses:
+        '200':
+          description: Successful price calculation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  baseFare:
+                    type: number
+                    description: Calculated base fare
+                    example: 47.5
+
+                  compensationLevy:
+                    type: number
+                    description: Regulatory compensation levy
+                    example: 5
+
+                  regulatoryFee:
+                    type: number
+                    description: Optional regulatory fee
+                    example: 0
+
+                  platformFee:
+                    type: number
+                    description: Optional platform fee
+                    example: 0
+
+                  total:
+                    type: number
+                    description: Final total price
+                    example: 52.5
+
+        '400':
+          description: Invalid request parameters
