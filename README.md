@@ -6,15 +6,15 @@ Backend API for the Israride platform, currently focused on ride pricing calcula
 
 ## 🚀 Live API
 
-### 🔗 Health Check
-
-👉 `https://israride-api.onrender.com/health`
-
----
-
 ### 🔗 Swagger UI (Interactive API)
 
 👉 `https://moralist1992.github.io/israride-api/swagger/`
+
+---
+
+### 🔗 Health Check
+
+👉 `https://israride-api.onrender.com/health`
 
 ---
 
