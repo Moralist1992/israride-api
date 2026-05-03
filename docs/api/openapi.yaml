@@ -7,7 +7,6 @@ info:
     API for calculating ride pricing based on trip parameters and system-defined pricing policies.
 
 servers:
-  - url: http://localhost:3000
   - url: https://israride-api.onrender.com
 paths:
   /api/v1/pricing/calculate:
